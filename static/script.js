@@ -16,12 +16,9 @@ function openImageViewer(index) {
     if (index >= 0 && index <= 2) {
         // June 7 post images (indexes 0-2)
         currentImageIndex = index;
-    } else if (index === 3) {
-        // May 31 post image (index 3)
-        currentImageIndex = june7Images.length;
-    } else if (index >= 4 && index <= 6) {
+    } else if (index >= 3 && index <= 5) {
         // May 25 post images (indexes 4-6)
-        currentImageIndex = june7Images.length + may31Images.length + (index - 4);
+        currentImageIndex = june7Images.length + may31Images.length + (index - 3);
     }
     
     // Display the image viewer
@@ -33,9 +30,7 @@ function openImageViewer(index) {
     const postDate = document.getElementById('postDate');
     if (index >= 0 && index <= 2) {
         postDate.innerHTML = '7 tháng 6 · <i class="fas fa-globe-asia"></i>';
-    } else if (index === 3) {
-        postDate.innerHTML = '31 tháng 5 · <i class="fas fa-globe-asia"></i>';
-    } else if (index >= 4 && index <= 6) {
+    } else if (index >= 3 && index <= 5) {
         postDate.innerHTML = '25 tháng 5 · <i class="fas fa-globe-asia"></i>';
     }
     
@@ -93,8 +88,6 @@ function changeImage(direction) {
     const postDate = document.getElementById('postDate');
     if (currentImageIndex < june7Images) {
         postDate.innerHTML = '7 tháng 6 · <i class="fas fa-globe-asia"></i>';
-    } else if (currentImageIndex < june7Images + may31Images) {
-        postDate.innerHTML = '31 tháng 5 · <i class="fas fa-globe-asia"></i>';
     } else {
         postDate.innerHTML = '25 tháng 5 · <i class="fas fa-globe-asia"></i>';
     }
