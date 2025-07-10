@@ -1,0 +1,20 @@
+.image-counter {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 14px;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .image-counter {
+    bottom: 12px;
+    padding: 3px 10px;
+    font-size: 12px;
+  }
+}

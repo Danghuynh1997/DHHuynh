@@ -1,0 +1,533 @@
+/* Modern Facebook style updates */
+:root {
+  --fb-blue: #1877f2;
+  --fb-dark-blue: #166fe5;
+  --fb-green: #42b72a;
+  --fb-light-green: #36a420;
+  --fb-dark: #242526;
+  --fb-light: #f0f2f5;
+  --fb-white: #ffffff;
+  --fb-gray: #65676b;
+  --fb-lightgray: #e4e6eb;
+  --fb-border: #dddfe2;
+  --fb-hover: #f2f2f2;
+}
+
+/* Updated profile section */
+.profile-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 0;
+}
+
+.profile-picture {
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  margin-top: -86px;
+  position: relative;
+  z-index: 2;
+  background-color: #fff;
+}
+
+.profile-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-info {
+  flex-grow: 1;
+  padding-left: 20px;
+}
+
+.profile-name {
+  font-size: 32px;
+  font-weight: 700;
+  color: #050505;
+  margin: 0 0 5px 0;
+}
+
+.profile-stats {
+  font-size: 15px;
+  color: #65676b;
+}
+
+/* Updated buttons */
+.btn {
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  transition: all 0.2s;
+}
+
+.btn i {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.btn-primary {
+  background-color: var(--fb-blue);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--fb-dark-blue);
+}
+
+.btn-secondary {
+  background-color: #e4e6eb;
+  color: #050505;
+}
+
+.btn-secondary:hover {
+  background-color: #d8dadf;
+}
+
+.search-btn {
+  min-width: 120px;
+}
+
+/* Updated tabs */
+.page-tabs {
+  display: flex;
+  margin-top: 20px;
+  border-top: 1px solid #e4e6eb;
+  padding: 0 16px;
+}
+
+.tab {
+  padding: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #65676b;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tab:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.tab.active {
+  color: var(--fb-blue);
+  border-bottom: 3px solid var(--fb-blue);
+}
+
+/* Mobile Facebook Interface */
+
+/* Mobile logo header */
+.mobile-logo-header {
+  padding: 16px 16px 8px 16px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  position: relative;
+  margin-top: -16px;
+  z-index: 2;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.studio-logo {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.square-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: none;
+  margin-right: 12px;
+  /* Using 66% of the space */
+  position: relative;
+}
+
+.studio-text {
+  flex: 1;
+}
+
+.brand-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  color: #000;
+}
+
+.followers-count {
+  font-size: 12px;
+  color: #65676b;
+  margin: 0;
+  padding-top: 2px;
+}
+
+/* Studio text */
+.studio-tag {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  font-size: 10px;
+  font-weight: bold;
+  color: #000;
+  background-color: white;
+  padding: 0 3px;
+  text-transform: uppercase;
+}
+
+/* Mobile action buttons */
+.mobile-action-buttons {
+  display: flex;
+  padding: 8px 16px 12px;
+  gap: 6px;
+  background-color: white;
+}
+
+.mobile-btn {
+  flex: 1;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 0;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0 2px;
+}
+
+.mobile-btn i {
+  margin-right: 3px;
+  font-size: 12px;
+}
+
+.follow-btn {
+  background-color: #1877f2;
+  color: white;
+  font-weight: 600;
+}
+
+.message-btn, .search-btn {
+  background-color: #e4e6eb;
+  color: #050505;
+}
+
+/* Mobile tabs */
+.mobile-page-tabs {
+  display: flex;
+  overflow-x: auto;
+  border-top: 1px solid #e4e6eb;
+  background-color: white;
+  padding: 0;
+  margin-top: 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.mobile-page-tabs::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+.mobile-tab {
+  padding: 12px 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #65676b;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.mobile-tab.active {
+  color: #1877f2;
+  border-bottom-color: #1877f2;
+}
+
+.mobile-tab.more {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+/* Cover image styles */
+.page-cover {
+  position: relative;
+  height: 350px;
+  margin-bottom: 0;
+  overflow: hidden;
+}
+
+.page-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  /* Header adjustments */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Hide desktop elements */
+  .profile-container, 
+  .profile-picture,
+  .profile-info,
+  .profile-actions,
+  .page-tabs {
+    display: none;
+  }
+  
+  /* Mobile cover image adjustments */
+  .page-cover {
+    height: 150px;
+    margin-top: 56px;
+  }
+  
+  /* Show mobile elements */
+  .mobile-logo-header,
+  .mobile-action-buttons,
+  .mobile-page-tabs {
+    display: flex;
+  }
+  
+  /* Main content adjustments */
+  .fb-content {
+    padding-top: 0;
+  }
+  
+  /* For mobile, left sidebar appears as a card */
+  .left-sidebar {
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    background-color: white;
+  }
+  
+  .main-feed {
+    width: 100%;
+  }
+  
+  .post {
+    margin-bottom: 8px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Adjust overall layout */
+  body {
+    background-color: #f0f2f5;
+  }
+  
+  /* Updated mobile page profile */
+  .page-profile {
+    border-bottom: none;
+    padding: 0;
+    background-color: transparent;
+  }
+  
+  /* Mobile header background */
+  .mobile-logo-header {
+    background-color: white;
+    padding-bottom: 5px;
+  }
+  
+  /* Fix post images */
+  .fb-image-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .fb-image-item {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0;
+  }
+  
+  /* Sidebar sections styling */
+  .sidebar-section {
+    margin-bottom: 8px;
+    border-radius: 0;
+    overflow: hidden;
+  }
+  
+  /* Update the intro section */
+  .info-section {
+    padding: 12px;
+  }
+  
+  .intro-quote {
+    font-size: 14px;
+    font-style: italic;
+    color: #1c1e21;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Contact info styling */
+  .contact-info-item {
+    display: flex;
+    align-items: center;
+    padding: 6px 0;
+    font-size: 13px;
+  }
+  
+  .contact-info-item i {
+    width: 20px;
+    margin-right: 8px;
+    color: #65676b;
+  }
+  
+  /* Photo grid for mobile */
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 8px;
+  }
+  
+  .photo-item {
+    aspect-ratio: 1/1;
+  }
+  
+  /* Footer adjustments */
+  .footer {
+    padding: 16px;
+    text-align: center;
+    background-color: transparent;
+    color: var(--fb-gray);
+    font-size: 12px;
+    margin-top: 16px;
+  }
+  
+  /* Post styling */
+  .post {
+    margin-bottom: 8px;
+  }
+  
+  .post-header {
+    padding: 8px 12px;
+  }
+  
+  .post-content {
+    padding: 0 12px;
+  }
+  
+  .post-content p {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  
+  .post-stats {
+    padding: 8px 12px;
+  }
+  
+  .post-actions {
+    padding: 0;
+  }
+}
+
+/* Desktop overrides */
+@media (min-width: 769px) {
+  .mobile-logo-header,
+  .mobile-action-buttons,
+  .mobile-page-tabs {
+    display: none;
+  }
+  
+  .page-profile {
+    background-color: white;
+    padding: 0 20px 0;
+    border-bottom: 1px solid #e4e6eb;
+    margin-bottom: 20px;
+  }
+  
+  .page-cover {
+    height: 350px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 0;
+  }
+  
+  .page-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .profile-picture {
+    width: 90px;
+    height: 90px;
+    margin-top: -45px;
+  }
+
+  .profile-name {
+    font-size: 20px;
+  }
+
+  .profile-stats {
+    font-size: 12px;
+  }
+
+  .btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  
+  .btn i {
+    margin-right: 4px;
+  }
+  
+  /* Mobile header tweaks for smaller screens */
+  .square-logo {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .brand-name {
+    font-size: 18px;
+  }
+  
+  .followers-count {
+    font-size: 12px;
+  }
+  
+  .mobile-btn {
+    font-size: 12px;
+    padding: 6px 0;
+  }
+  
+  .mobile-tab {
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+}

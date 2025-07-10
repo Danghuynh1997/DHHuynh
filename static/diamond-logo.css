@@ -1,0 +1,55 @@
+/* Logo styling for mobile Facebook view */
+
+/* Custom logo container */
+.studio-logo {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Regular logo container */
+.logo-container {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  margin-right: 12px;
+}
+
+/* Logo image covering 66% of container */
+.square-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  position: relative;
+  z-index: 0;
+}
+
+/* STUDIO text below logo */
+.studio-tag {
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background: white;
+  padding: 0 2px;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+/* Followers text adjustments */
+.followers-count {
+  color: #65676b;
+  font-size: 12px;
+  margin: 0;
+  padding-top: 2px;
+}
+
+/* Brand name adjustments */
+.brand-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1.2;
+}
