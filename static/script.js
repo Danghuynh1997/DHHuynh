@@ -216,8 +216,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 isZoomed = true;
             } else {
                 // Zoom out
-                viewerImage.style.maxHeight = '50%';
-                viewerImage.style.maxWidth = '100%';
+                viewerImage.style.maxHeight = '100%';
+                viewerImage.style.maxWidth = '40%';
                 viewerImage.style.cursor = 'zoom-in';
                 isZoomed = false;
             }
