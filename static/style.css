@@ -176,7 +176,6 @@ header {
 
 /* Page Cover Banner */
 .page-cover {
-  margin-top: 56px;
   position: relative;
   background-color: var(--fb-dark);
   color: #fff;
