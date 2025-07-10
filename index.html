@@ -18,7 +18,7 @@
   <main>
     <!-- Page Cover Banner -->
     <div class="page-cover">
-      <img src="static/index/header.jpg" alt="Cover Banner" class="cover-photo">
+      <img src="static/index/post-01.jpg" alt="Cover Banner" class="cover-photo">
     </div>
 
     <!-- Page Profile -->
@@ -47,6 +47,8 @@
             <p>Thế nhưng, khi đứng trước lựa chọn giữa “tiếp tục phát triển nơi phố thị” hay “trở về phục vụ cộng đồng quê hương”, thầy Huynh đã lặng lẽ chọn phương án thứ hai – một quyết định khiến nhiều người nể phục.</p>
             <p>“Về quê, học trò không có điều kiện, nhưng các em có khát khao. Mình về không phải để dạy hát cho thật hay, mà để các em tin rằng: giọng hát mình cũng có giá trị,” – thầy từng chia sẻ.</p>
 
+            <img src="static/index/post-02.jpg" alt="Phòng học âm nhạc">
+
             <p>🎤 Truyền cảm hứng qua giọng hát và nhạc cụ</p>
             <p>Với hơn 10 loại nhạc cụ trong tay – từ guitar, piano, đến sáo trúc, harmonica, cajon… – thầy Huynh có khả năng thị phạm, hướng dẫn học viên trực tiếp một cách sinh động và hiệu quả.</p>
             <p>Không chỉ là người thầy kỹ thuật, thầy còn là một người truyền cảm xúc mạnh mẽ, giúp học viên tự tin thể hiện bản thân qua âm nhạc – dù là trên sân khấu hay chỉ là trong lớp học nhỏ ở quê nhà.</p>
@@ -61,20 +63,7 @@
 
             <p>🎓 Nguyễn Đăng Huynh – một tấm gương sống đẹp trong âm nhạc, giáo dục và lòng nhân ái.</p>
 
-            <div class="post-images">
-              <div class="fb-image-grid">
-                <div class="fb-image-item" onclick="openImageViewer(0)">
-                  <img src="static/index/feed_a1_01.jpg" alt="Phòng học âm nhạc">
-                </div>
-                <div class="fb-image-item" onclick="openImageViewer(1)">
-                  <img src="static/index/feed_a1_02.jpg" alt="Phòng học âm nhạc">
-                </div>
-                <div class="fb-image-item" onclick="openImageViewer(2)">
-                  <img src="static/index/feed_a1_03.jpg" alt="Phòng học âm nhạc">
-                </div>
-              </div>
-              <br>
-            </div>
+            <img src="static/index/post-03.jpg" alt="Phòng học âm nhạc">
           </div>
         </div>
       </div>
@@ -121,38 +110,281 @@
 
   <script>
     // Keep existing scripts
-    let popup = document.getElementById("popup");
-    function openPopup() {
-      popup.classList.add("open-popup")
-    }
-    function closePopup() {
-      popup.classList.remove("open-popup")
+    let currentImageIndex = 0;
+    const images = [
+      'static/index/feed_a1_01.jpg',
+      'static/index/feed_a1_02.jpg',
+      'static/index/feed_a1_03.jpg'
+    ];
+
+    function openImageViewer(index) {
+      const viewer = document.getElementById('fbImageViewer');
+      const viewerImage = document.getElementById('viewerImage');
+      const imageCounter = document.getElementById('imageCounter');
+      
+      currentImageIndex = index;
+      viewer.classList.add('open');
+      
+      viewerImage.src = images[currentImageIndex];
+      imageCounter.textContent = `${currentImageIndex + 1}/${images.length}`;
+      
+      // Lock body scroll
+      document.body.style.overflow = 'hidden';
     }
 
-    let popup1 = document.getElementById("popup1");
-    function openPopup1() {
-      popup1.classList.add("open-popup1")
-    }
-    function closePopup1() {
-      popup1.classList.remove("open-popup1")
+    function closeImageViewer() {
+      const viewer = document.getElementById('fbImageViewer');
+      viewer.classList.remove('open');
+      document.body.style.overflow = '';
     }
 
-    let popup2 = document.getElementById("popup2");
-    function openPopup2() {
-      popup2.classList.add("open-popup2")
-    }
-    function closePopup2() {
-      popup2.classList.remove("open-popup2")
+    function changeImage(direction) {
+      currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
+      const viewerImage = document.getElementById('viewerImage');
+      const imageCounter = document.getElementById('imageCounter');
+      
+      viewerImage.src = images[currentImageIndex];
+      imageCounter.textContent = `${currentImageIndex + 1}/${images.length}`;
     }
 
-    const header = document.querySelector("header");
-    const menuToggler = document.querySelectorAll("#menu_toggle");
-
-    menuToggler.forEach(toggler => {
-      toggler.addEventListener("click", () => header.classList.toggle("showMenu"));
+    // Add keyboard navigation
+    document.addEventListener('keydown', function(event) {
+      if (!document.getElementById('fbImageViewer').classList.contains('open')) return;
+      
+      switch(event.key) {
+        case 'ArrowLeft':
+          changeImage(-1);
+          break;
+        case 'ArrowRight':
+          changeImage(1);
+          break;
+        case 'Escape':
+          closeImageViewer();
+          break;
+      }
     });
   </script>
 
 </body>
 
 </html>
+
+<style>
+  body, html {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+  }
+
+  .fb-image-viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    display: none;
+    -webkit-overflow-scrolling: touch; /* For iOS smooth scrolling */
+  }
+
+  .fb-image-viewer.open {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .fb-image-viewer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    z-index: 10000;
+  }
+
+  .viewer-user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .viewer-user-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .viewer-action-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .fb-image-viewer-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    touch-action: none; /* Prevent iOS double-tap zoom */
+  }
+
+  .viewer-image-container {
+    position: relative;
+    max-width: 90%;
+    max-height: 80vh;
+  }
+
+  #viewerImage {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .image-counter {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+  }
+
+  .nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+  }
+
+  .prev-btn {
+    left: 20px;
+  }
+
+  .next-btn {
+    right: 20px;
+  }
+
+  /* Post images grid styles */
+  .post-images {
+    margin: 16px 0;
+  }
+
+  .fb-image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .fb-image-item {
+    position: relative;
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .fb-image-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .fb-image-item:hover img {
+    transform: scale(1.05);
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .viewer-image-container {
+      max-width: 100%;
+      max-height: 70vh;
+    }
+    
+    .nav-button {
+      width: 36px;
+      height: 36px;
+      font-size: 20px;
+    }
+
+    .prev-btn {
+      left: 10px;
+    }
+
+    .next-btn {
+      right: 10px;
+    }
+
+    .fb-image-viewer-header {
+      padding: 8px;
+    }
+
+    .viewer-user-img {
+      width: 32px;
+      height: 32px;
+    }
+
+    /* Mobile post images adjustments */
+    .post-images {
+      margin: 12px -12px; /* Negative margin to stretch grid edge-to-edge on mobile */
+    }
+
+    .fb-image-grid {
+      gap: 2px;
+      border-radius: 0;
+    }
+
+    .fb-image-item {
+      padding-top: 100%; /* Maintain 1:1 aspect ratio */
+    }
+
+    .fb-image-item img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  /* Small mobile screens */
+  @media (max-width: 480px) {
+    .post-images {
+      margin: 8px -8px;
+    }
+
+    .fb-image-grid {
+      gap: 1px;
+    }
+  }
+</style>

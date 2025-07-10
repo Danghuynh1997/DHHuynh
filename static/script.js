@@ -4,6 +4,9 @@ let currentImageIndex = 0;
 
 // Function to open the Facebook image viewer
 function openImageViewer(index) {
+  const viewer = document.getElementById('fbImageViewer');
+  viewer.classList.add('open');
+  
     // Get images from each post separately to correctly identify their source post
     const june7Images = Array.from(document.querySelector('.post:nth-child(1)').querySelectorAll('.fb-image-item img')).map(img => img.src);
     const may31Images = Array.from(document.querySelector('.post:nth-child(2)').querySelectorAll('.post-full-image')).map(img => img.src);
@@ -22,7 +25,6 @@ function openImageViewer(index) {
     }
     
     // Display the image viewer
-    const viewer = document.getElementById('fbImageViewer');
     viewer.style.display = 'flex';
     document.body.style.overflow = 'hidden'; // Prevent scrolling
     
@@ -43,9 +45,8 @@ function openImageViewer(index) {
 
 // Function to close the image viewer
 function closeImageViewer() {
-    const viewer = document.getElementById('fbImageViewer');
-    viewer.style.display = 'none';
-    document.body.style.overflow = ''; // Re-enable scrolling
+  const viewer = document.getElementById('fbImageViewer');
+  viewer.classList.remove('open');
 }
 
 // Function to navigate to the previous image

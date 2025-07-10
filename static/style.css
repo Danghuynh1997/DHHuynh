@@ -1602,15 +1602,20 @@ header {
 
 /* Facebook Image Viewer Modal */
 .fb-image-viewer {
-  display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.85);
   z-index: 9999;
-  background-color: rgba(0, 0, 0, 0.9);
-  flex-direction: column;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.fb-image-viewer.open {
+  display: flex;
 }
 
 .fb-image-viewer-header {
